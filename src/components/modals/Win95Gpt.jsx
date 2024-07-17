@@ -1,7 +1,7 @@
 import { Button, Frame, Input, Modal } from '@react95/core';
 import { Computer, Inetcpl1313 } from '@react95/icons';
 import { useRequestChat } from '../../hooks/useRequestChat';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const Win95Gpt = ({ handleOpenModal, handleCloseModal, showModal }) => {
     const { StartSendMessage } = useRequestChat();
@@ -40,6 +40,7 @@ export const Win95Gpt = ({ handleOpenModal, handleCloseModal, showModal }) => {
         }
     };
 
+
     return (
         <>
             {showModal && (
@@ -75,7 +76,7 @@ export const Win95Gpt = ({ handleOpenModal, handleCloseModal, showModal }) => {
                             style={{ marginRight: '10px', padding: '10px' }}
                             value={messageInput}
                             onChange={handleInputChange}
-                            onKeyPress={handleKeyPress}
+                            onKeyUp={handleKeyPress}
                         />
                         <Button onClick={handleButtonClick} width={'15%'} style={{ padding: '10px' }}>Enviar</Button>
                     </div>
